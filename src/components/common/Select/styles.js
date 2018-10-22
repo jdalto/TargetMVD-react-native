@@ -12,12 +12,11 @@ const styles = StyleSheet.create({
         letterSpacing: 2.1,
         fontStyle: "normal",
         fontSize: 14,
-        fontWeight: "600",
-        overflow: 'visible'
+        fontWeight: "600"
     },
     dropDownArea:{
         width: 180,
-        height: "auto",
+        height: 74,
         color: "#000000",
     },
     dropdownText:{

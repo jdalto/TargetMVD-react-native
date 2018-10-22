@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form/immutable';
 import { ScrollView, Text, View, TouchableOpacity} from 'react-native';
 import { Divider } from 'react-native-elements';
@@ -9,8 +9,12 @@ import styles from './styles';
 import { white, black } from '../../../constants/styleConstants';
 import * as constraints from '../../../utils/constraints';
 
-const SignUpForm = ({ handleSubmit }) => (
-    <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps={'handled'}>
+class SignUpForm extends Component {
+    render () {
+    const {handleSubmit, signInLink} = this.props;
+
+    return(
+    <View contentContainerStyle={styles.container} keyboardShouldPersistTaps={'handled'} onSubmit={handleSubmit}>
       <View style={styles.field}>
         <Text style={styles.label}>NAME</Text>
         <Field
@@ -49,17 +53,18 @@ const SignUpForm = ({ handleSubmit }) => (
             <Divider style={{ backgroundColor: black, margin:10}} />
             <TouchableOpacity
                 style={[styles.buttonLargeContainer, styles.primaryButton]}
-                onPress={() => {}}>
+                onPress={signInLink}>
                 <Text style={styles.buttonText}>SIGN IN</Text>
             </TouchableOpacity>
         </View>
     </View>
-    </ScrollView>
-  );
+    </View>
+  )}
+};
 
 export default reduxForm({ 
     form: 'signUp',
     destroyOnUnmount: false,
     forceUnregisterOnUnmount: true,
-    validate: constraints.validations(constraints.signUp)
+   // validate: constraints.validations(constraints.signUp)
  })(SignUpForm);
