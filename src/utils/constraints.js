@@ -9,22 +9,40 @@ validate.validators.caseInsensitiveInclusion = (value, options) => {
   };
 
 export const signUp = {
-    userName: {
-      presence: true
+    name: {
+      presence: true,
     },
     email: {
       presence: true,
       email: true
     },
     password: {
-      presence: true,
-      length: { minimum: 6 }
+      presence: true,     
+      length: {
+        minimum: 8
+      }
     },
-    passwordConfirmation: {
+    password_confirmation: {
       presence: true,
       equality: { attribute: 'password' }
     },
     gender: {
+      presence: {
+        message: '^You must select a gender'
+      },
+      inclusion: {
+        within: {0:'Male', 1:'Female'},
+        message: '^You must select a valid gender'
+      }
+    }
+  };
+
+  export const signIn = {
+    email: {
+      presence:true,
+      email: true
+    },
+    password: {
       presence: true
     }
   };

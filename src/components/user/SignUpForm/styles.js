@@ -8,14 +8,11 @@ const styles = StyleSheet.create({
     width: 100,
     color: black,
   },
-  container:{
-    // flex:1,
-    // flexDirection:'row',
-    // alignItems:'center',
-    // justifyContent:'center'
+  container: {
+    flex:1,
+    alignItems:'center',
   },
-  label:{
-    width: 102.3,
+  label: {
     height: 15,
     fontFamily: 'Open Sans',
     fontSize: 11,
@@ -24,11 +21,12 @@ const styles = StyleSheet.create({
     letterSpacing: 1.65,
     textAlign: 'center',
     color: black,
-    marginTop: 20
+    marginTop: '10%'
   },
   field: {
     flex:1,
     alignItems: 'center',
+    justifyContent:'center'
   },
   buttonText: {
     width: 102.3,
@@ -41,10 +39,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: black
   },
-  buttonsContainer:{
+  buttonsContainer: {
     flex:1,
     alignItems:'center',
-    marginTop: 30
+    marginTop: '10%'
+  },
+  dividerContainer: {
+    backgroundColor: black,
+    margin: 10
   }
 });
 

@@ -1,4 +1,8 @@
 import * as types from './actionTypes';
+import { sessionService } from 'redux-react-native-session';
+import userApi from '../api/userApi';
+import { alertErrors, getFullErrorMessage } from '../utils/helpers';
+
 
 export const signUpSuccess = () => ({
     type: types.SIGN_UP_SUCCESS
@@ -12,25 +16,45 @@ export const submitSignUp = () => ({
     type: types.SUBMIT_SIGN_UP
 });
 
-export function doSubmit() {
-  debugger;
-  return true;
+export const submitSignIn = () => ({
+  type: types.SUBMIT_SIGN_IN
+});
+
+export const signInSuccess = () => ({
+  type: types.SIGN_IN_SUCCESS
+});
+
+export const signInError = () => ({
+  type: types.SIGN_IN_ERROR
+});
+
+export const signUp = (user) =>
+(dispatch) => {
+  dispatch(submitSignUp());
+  return userApi.signUp({ user })
+    .then((user) => {
+      sessionService.saveUser(user)
+        .then(() => {
+          dispatch(signUpSuccess());
+        });
+    }).catch((err) => {
+      dispatch(signUpError());
+      alertErrors(getFullErrorMessage(err.errors));
+    });
 };
 
-  // export const signUp = user =>
-  // (dispatch) => {
-  //   dispatch(cleanOnboarding());
-  //   dispatch(submitSignUp());
-  //   return userApi.signUp({ user })
-  //     .then(({ user }) => {
-  //       dispatch(setOnboardingType(onboardingTypes.default));
-  //       sessionService.saveUser(user)
-  //         .then(() => {
-  //           pushNotifications.init();
-  //           dispatch(signUpSuccess());
-  //         });
-  //     }).catch((err) => {
-  //       dispatch(signUpError());
-  //       alertErrors(err.errors.fullMessages[0]);
-  //     });
-  // };
+export const signIn = (user) =>
+  (dispatch) => {
+    dispatch(submitSignIn());
+    userApi.signIn({ user }).then((user) => {
+      sessionService.saveUser(user)
+        .then(() => {
+          dispatch(signInSuccess());
+        });
+    }).catch((err) => {
+      dispatch(signInError());
+      alertErrors('Sign in error'); //TODO: Add error message
+    });
+  };
+
+

@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import { Text, View, ImageBackground, SafeAreaView } from 'react-native';
+import { Text, View, ImageBackground } from 'react-native';
 import SignUpForm from '../../components/user/SignUpForm';
 import signUpBackground from '../../assets/background.png';
-import { signUp, doSubmit } from '../../actions/userActions';
+import { signUp } from '../../actions/userActions';
 import { connect } from 'react-redux';
 
 import { destroy } from 'redux-form/immutable';
 import PropTypes from 'prop-types';
 import styles from './styles';
+import Loading from '../../components/common/Loading';
 
 class SignUpScreen extends Component {
     constructor(props) {
@@ -26,18 +27,20 @@ class SignUpScreen extends Component {
       }
 
       render(){
-        const { signUp, doSubmit } = this.props;
+        const { signUp, loading } = this.props;
+        if (loading) {
+          return <Loading />;
+        }
         return (
             <View style={styles.signUpContainer}>
-            <View style={styles.safeAreaTop}>
-            <ImageBackground source={signUpBackground} style={styles.container} resizeMode='stretch'>
-                <View>
-                  <Text style={styles.targetMvdText}>TARGET MVD</Text>
-                  <SignUpForm onSubmit={user => doSubmit()} signInLink={this.navigateToSignIn}/>
-                </View>
+              <View style={styles.safeAreaTop}>
+                <ImageBackground source={signUpBackground} style={styles.container} resizeMode='cover'>
+                    <View style={styles.formContainer}>
+                      <Text style={styles.targetMvdText}>TARGET MVD</Text>
+                      <SignUpForm onSubmit={user => signUp(user.toJS())} signInLink={this.navigateToSignIn}/>
+                    </View>
                 </ImageBackground>
-            </View>
-              
+              </View>
             </View>
           );
       }
@@ -47,15 +50,14 @@ class SignUpScreen extends Component {
 //   signUp: PropTypes.func.isRequired
 // };
 
-// const mapState = state => ({
-//   // authenticated: state.getIn(['session', 'authenticated']),
-//   // loading: state.getIn(['user', 'loading']),
-// });
+const mapState = state => ({
+  // authenticated: state.getIn(['session', 'authenticated']),
+  loading: state.getIn(['user', 'loading']),
+});
 
 const mapDispatch = dispatch => ({
-  //signUp: user => dispatch(signUp(user)),
-  doSubmit: () => dispatch(doSubmit()),
+  signUp: user => dispatch(signUp(user)),
   destroyForm: () => dispatch(destroy('signUp')),
 });
 
-export default connect(null, mapDispatch)(SignUpScreen);
+export default connect(mapState, mapDispatch)(SignUpScreen);

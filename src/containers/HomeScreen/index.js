@@ -12,7 +12,6 @@ import styles from './styles';
 class SignInScreen extends Component {
     constructor(props) {
         super(props);
-        this.navigateToHome = this.navigateTohome.bind(this);
       }
 
       render(){
@@ -22,8 +21,7 @@ class SignInScreen extends Component {
                 <View style={styles.safeAreaTop}>
                     <ImageBackground source={signInBackground} style={styles.container} resizeMode='cover'>
                         <View style={styles.formContainer}>
-                            <Text style={styles.targetMvdText}>TARGET MVD</Text>
-                            <SignInForm onSubmit={user => signIn(user.toJS())}/>
+                            <Text style={styles.targetMvdText}>WELCOME TO TARGET MVD</Text>
                         </View>
                     </ImageBackground>
                 </View>         
@@ -31,18 +29,3 @@ class SignInScreen extends Component {
           );
       }
 }
-
-// SignInScreen.propTypes = {
-//   signIn: PropTypes.func.isRequired
-// };
-
-const mapState = state => ({
-  authenticated: state.getIn(['session', 'authenticated']),
-  loading: state.getIn(['user', 'loading']),
-});
-
-const mapDispatch = dispatch => ({
-  signIn: user => dispatch(signIn(user)),
-});
-
-export default connect(mapState, mapDispatch)(SignInScreen);

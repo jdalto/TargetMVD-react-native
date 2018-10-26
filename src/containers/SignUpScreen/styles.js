@@ -16,6 +16,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: getTopSpacing()
   },
+  formContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   targetMvdText: {
     width: 221.5,
     height: 27,
@@ -27,8 +32,7 @@ const styles = StyleSheet.create({
     color: black,
     marginBottom: 20,
     marginLeft: 40
-  },
-  
+  }
 });
 
 export default styles;
