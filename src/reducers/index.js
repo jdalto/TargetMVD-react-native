@@ -4,9 +4,9 @@ import { combineReducers } from 'redux-immutable';
 import { reducer as form } from 'redux-form/immutable';
 
 const rootReducer = combineReducers({
-    userReducer,
-    form,
-    session,
+  userReducer,
+  form,
+  session
 });
 
 export default rootReducer;

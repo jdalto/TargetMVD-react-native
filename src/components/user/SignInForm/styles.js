@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     letterSpacing: 0,
     textAlign: 'center',
-    color: '#000000',
+    color: black,
     marginTop: '5%'
   },
   connectWithFacebookText: { 
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     letterSpacing: 2.4,
     textAlign: 'center',
-    color: '#000000',
+    color: black,
     marginTop: '5%'
   }
 });

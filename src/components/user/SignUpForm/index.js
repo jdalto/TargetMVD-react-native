@@ -10,63 +10,64 @@ import { white, black } from '../../../constants/styleConstants';
 import * as constraints from '../../../utils/constraints';
 
 class SignUpForm extends Component {
-    render () {
-        const { handleSubmit, signInLink } = this.props;
-        return(
-        <View contentContainerStyle={styles.container} keyboardShouldPersistTaps={'handled'} onSubmit={handleSubmit}>
-            <View style={styles.field}>
-                <Text style={styles.label}>NAME</Text>
-                <Field
-                name='name'
-                component={Input}
-                />
-            </View>
-            <View style={styles.field}>
-                <Text style={styles.label}>EMAIL</Text>
-                <Field
-                    name='email'
-                    keyboardType={'email-address'}
-                    component={Input}
-                />
-            </View>
-            <View style={styles.field}>
-                <Text style={styles.label}>PASSWORD</Text>
-                <Field
-                    name='password'
-                    component={Input}
-                    password
-                    placeholder='MIN. 8 CHARACTERS LONG'
-                />
-            </View>
-            <View style={styles.field}>
-                <Text style={styles.label}>CONFIRM PASSWORD</Text>
-                <Field
-                    name='password_confirmation'
-                    component={Input}
-                    password
-                    placeholder='MIN. 8 CHARACTERS LONG'
-                />
-            </View>
-            <View style={styles.field}>
-                <Text style={styles.label}>GENDER</Text>
-                <Field
-                    name='gender'
-                    component={ Select }
-                    options={['Male', 'Female']}
-                    defaultValue='SELECT YOUR GENDER'
-                />
-            </View>
-            <View style={styles.buttonsContainer}>
-                <ActionButton title='SIGN UP' backgroundColor={black} textColor={white} onPress={handleSubmit}/>
-                <Divider style={styles.dividerContainer} />
-                <TouchableOpacity
-                    style={[styles.buttonLargeContainer, styles.primaryButton]}
-                    onPress={signInLink}>
-                    <Text style={styles.buttonText}>SIGN IN</Text>
-                </TouchableOpacity>
-            </View>
+  render () {
+    const { handleSubmit, signInLink } = this.props;
+    return (
+      <View contentContainerStyle={styles.container} keyboardShouldPersistTaps={'handled'} onSubmit={handleSubmit}>
+        <View style={styles.field}>
+          <Text style={styles.label}>NAME</Text>
+          <Field
+            name='name'
+            component={Input}
+          />
         </View>
-  )}
+        <View style={styles.field}>
+          <Text style={styles.label}>EMAIL</Text>
+          <Field
+            name='email'
+            keyboardType={'email-address'}
+            component={Input}
+          />
+        </View>
+        <View style={styles.field}>
+          <Text style={styles.label}>PASSWORD</Text>
+          <Field
+            name='password'
+            component={Input}
+            password
+            placeholder='MIN. 8 CHARACTERS LONG'
+          />
+        </View>
+        <View style={styles.field}>
+          <Text style={styles.label}>CONFIRM PASSWORD</Text>
+          <Field
+            name='password_confirmation'
+            component={Input}
+            password
+            placeholder='MIN. 8 CHARACTERS LONG'
+          />
+        </View>
+        <View style={styles.field}>
+          <Text style={styles.label}>GENDER</Text>
+          <Field
+            name='gender'
+            component={ Select }
+            options={['Male', 'Female']}
+            defaultValue='SELECT YOUR GENDER'
+          />
+        </View>
+        <View style={styles.buttonsContainer}>
+          <ActionButton title='SIGN UP' backgroundColor={black} textColor={white} onPress={handleSubmit}/>
+          <Divider style={styles.dividerContainer} />
+          <TouchableOpacity
+            style={[styles.buttonLargeContainer, styles.primaryButton]}
+            onPress={signInLink}>
+            <Text style={styles.buttonText}>SIGN IN</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    )
+  }
 };
 
 export default reduxForm({ 

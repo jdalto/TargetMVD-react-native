@@ -3,17 +3,16 @@ import { sessionService } from 'redux-react-native-session';
 import userApi from '../api/userApi';
 import { alertErrors, getFullErrorMessage } from '../utils/helpers';
 
-
 export const signUpSuccess = () => ({
-    type: types.SIGN_UP_SUCCESS
-  });
+  type: types.SIGN_UP_SUCCESS
+});
   
 export const signUpError = () => ({
-    type: types.SIGN_UP_ERROR
-  });
+  type: types.SIGN_UP_ERROR
+});
 
 export const submitSignUp = () => ({
-    type: types.SUBMIT_SIGN_UP
+  type: types.SUBMIT_SIGN_UP
 });
 
 export const submitSignIn = () => ({
@@ -36,6 +35,7 @@ export const signUp = (user) =>
       sessionService.saveUser(user)
         .then(() => {
           dispatch(signUpSuccess());
+          navigateToHome();
         });
     }).catch((err) => {
       dispatch(signUpError());
@@ -53,8 +53,6 @@ export const signIn = (user) =>
         });
     }).catch((err) => {
       dispatch(signInError());
-      alertErrors('Sign in error'); //TODO: Add error message
+      alertErrors('Sign in error'); //TODO: Change 
     });
-  };
-
-
+};

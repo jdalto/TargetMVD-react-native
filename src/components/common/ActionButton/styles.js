@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { white, primarySemiBold } from '../../../constants/styleConstants';
 
 const styles = StyleSheet.create({
     title: {

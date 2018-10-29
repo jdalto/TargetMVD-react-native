@@ -17,7 +17,7 @@ class Input extends Component {
     } = this.props;
     return(
       <View style={styles.container}>  
-      <TextInput
+        <TextInput
           style={[styles.inputArea, { borderColor: (error && touched ? redDefault : black), borderWidth: (error && touched ? 1.5 : 0.5) }]}
           tintColor={darkGrey}
           baseColor={defaultBlack}
@@ -29,7 +29,7 @@ class Input extends Component {
           multiline={multiline}
           returnKeyType={returnKeyType}
           placeholder={placeholder}
-      />
+        />
       {error && touched && <Text style ={styles.errorText}>{error}</Text>}
     </View>
     )
@@ -40,7 +40,6 @@ const { string, object, bool, number } = PropTypes;
 
 Input.propTypes = {
   input: object.isRequired,
-  label: string,
   meta: object,
   password: bool,
   characterRestriction: number,

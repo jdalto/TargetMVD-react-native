@@ -32,14 +32,14 @@ class Select extends Component {
     return(
       <View style={styles.container}>
         <ModalDropdown
-            style={[styles.selectArea, { borderColor: (error && touched ? redDefault : black), borderWidth: (error && touched ? 1.5 : 0.5) }]}
-            dropdownStyle={styles.dropDownArea}
-            textStyle={styles.dropdownText}
-            defaultValue={ value }
-            onSelect={ value => this.handleOnSelectChange(value) }
-            options={ options }
-            { ...inputProps }
-            { ...pickerProps }
+          style={[styles.selectArea, { borderColor: (error && touched ? redDefault : black), borderWidth: (error && touched ? 1.5 : 0.5) }]}
+          dropdownStyle={styles.dropDownArea}
+          textStyle={styles.dropdownText}
+          defaultValue={ value }
+          onSelect={ value => this.handleOnSelectChange(value) }
+          options={ options }
+          { ...inputProps }
+          { ...pickerProps }
         />
         {error && touched && <Text style ={styles.errorText}>{error}</Text>}
       </View> 

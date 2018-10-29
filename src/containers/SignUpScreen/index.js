@@ -6,52 +6,47 @@ import { signUp } from '../../actions/userActions';
 import { connect } from 'react-redux';
 
 import { destroy } from 'redux-form/immutable';
-import PropTypes from 'prop-types';
 import styles from './styles';
 import Loading from '../../components/common/Loading';
 
 class SignUpScreen extends Component {
-    constructor(props) {
-        super(props);
-        this.navigateToSignIn = this.navigateToSignIn.bind(this);
-      }
+  constructor(props) {
+    super(props);
+    this.navigateToSignIn = this.navigateToSignIn.bind(this);
+  }
 
-      navigateToSignIn = () => {
-        const { navigator } = this.props;
-        navigator.push({
-          screen: 'targetmvd.SignInScreen',
-          navigatorStyle: {
-            navBarHidden: true
-          }
-        });
+  navigateToSignIn = () => {
+    const { navigator } = this.props;
+    navigator.push({
+      screen: 'targetmvd.SignInScreen',
+      navigatorStyle: {
+        navBarHidden: true
       }
+    });
+  }
 
-      render(){
-        const { signUp, loading } = this.props;
-        if (loading) {
-          return <Loading />;
-        }
-        return (
-            <View style={styles.signUpContainer}>
-              <View style={styles.safeAreaTop}>
-                <ImageBackground source={signUpBackground} style={styles.container} resizeMode='cover'>
-                    <View style={styles.formContainer}>
-                      <Text style={styles.targetMvdText}>TARGET MVD</Text>
-                      <SignUpForm onSubmit={user => signUp(user.toJS())} signInLink={this.navigateToSignIn}/>
-                    </View>
-                </ImageBackground>
-              </View>
+  render(){
+    const { signUp, loading } = this.props;
+    if (loading) {
+      return <Loading />;
+    }
+    return (
+      <View style={styles.signUpContainer}>
+        <View style={styles.safeAreaTop}>
+          <ImageBackground source={signUpBackground} style={styles.container} resizeMode='cover'>
+            <View style={styles.formContainer}>
+              <Text style={styles.targetMvdText}>TARGET MVD</Text>
+              <SignUpForm onSubmit={user => signUp(user.toJS())} signInLink={this.navigateToSignIn}/>
             </View>
-          );
-      }
+          </ImageBackground>
+        </View>
+      </View>
+    );
+  }
 }
 
-// SignUpScreen.propTypes = {
-//   signUp: PropTypes.func.isRequired
-// };
-
 const mapState = state => ({
-  // authenticated: state.getIn(['session', 'authenticated']),
+  authenticated: state.getIn(['session', 'authenticated']),
   loading: state.getIn(['user', 'loading']),
 });
 
