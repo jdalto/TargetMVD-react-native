@@ -30,12 +30,11 @@ export const signInError = () => ({
 export const signUp = (user) =>
 (dispatch) => {
   dispatch(submitSignUp());
-  return userApi.signUp({ user })
+  return userApi.signUp(user)
     .then((user) => {
       sessionService.saveUser(user)
         .then(() => {
           dispatch(signUpSuccess());
-          navigateToHome();
         });
     }).catch((err) => {
       dispatch(signUpError());
@@ -46,7 +45,7 @@ export const signUp = (user) =>
 export const signIn = (user) =>
   (dispatch) => {
     dispatch(submitSignIn());
-    userApi.signIn({ user }).then((user) => {
+    userApi.signIn(user).then((user) => {
       sessionService.saveUser(user)
         .then(() => {
           dispatch(signInSuccess());

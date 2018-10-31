@@ -11,14 +11,7 @@ class Select extends Component {
   }
 
   handleOnSelectChange(value) {
-    switch(value) {
-      case '0':
-        this.props.input.value = 0;
-        break;
-      case '1':
-        this.props.input.value = 1;
-        break;
-    }
+    this.props.input.value = parseInt(value);
     this.props.input.onChange(this.props.input.value);
   };
 

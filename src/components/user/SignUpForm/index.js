@@ -74,3 +74,4 @@ export default reduxForm({
     form: 'signUp',
     validate: constraints.validations(constraints.signUp)
  })(SignUpForm);
+ 

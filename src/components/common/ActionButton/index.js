@@ -13,7 +13,7 @@ const ActionButton = ({
       title={title}
       onPress={onPress}
       titleStyle={{ fontSize: '4' }}
-      buttonStyle={[styles.container, { backgroundColor: backgroundColor, borderColor: borderColor}]}
+      buttonStyle={[styles.container, { backgroundColor, borderColor }]}
     />
 );
 
