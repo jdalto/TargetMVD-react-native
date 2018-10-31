@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   safeAreaTop: {
     flex: 1,
   },
-  signUpContainer: {
+  signInContainer: {
     backgroundColor: white,
     height: '100%',
   },

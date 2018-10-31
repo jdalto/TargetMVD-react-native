@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   safeAreaTop: {
     flex: 1,
   },
-  signUpContainer: {
+  signInContainer: {
     backgroundColor: white,
     height: '100%',
   },
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  targetMvdText: {
+  welcomeText: {
     width: 221.5,
     height: 27,
     fontFamily: 'Open Sans',

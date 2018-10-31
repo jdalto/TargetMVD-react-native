@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 import com.reactnativenavigation.NavigationApplication;
 import com.facebook.react.ReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +19,7 @@ public class MainApplication extends NavigationApplication {
     @Override
     public List<ReactPackage> createAdditionalReactPackages() {
         return Arrays.<ReactPackage>asList(
-           // new ReactNativeConfigPackage()
+           new ReactNativeConfigPackage(),
            new VectorIconsPackage()
         );
     }

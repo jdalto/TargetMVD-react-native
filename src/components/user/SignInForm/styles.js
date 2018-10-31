@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { black } from '../../../constants/styleConstants' 
 
 const styles = StyleSheet.create({
-  signUpButton: {
+  signInButton: {
     marginTop: 4,
     height: 'auto',
     width: 100,
@@ -11,6 +11,8 @@ const styles = StyleSheet.create({
   container: {
     flex:1,
     alignItems:'center',
+    justifyContent: 'center',
+    height: 'auto'
   },
   label: {
     height: 15,
@@ -21,12 +23,13 @@ const styles = StyleSheet.create({
     letterSpacing: 1.65,
     textAlign: 'center',
     color: black,
-    marginTop: '10%'
+    marginTop: '19%'
   },
   field: {
     flex:1,
     alignItems: 'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    height: '25%'
   },
   buttonText: {
     width: 102.3,
@@ -47,6 +50,30 @@ const styles = StyleSheet.create({
   dividerContainer: {
     backgroundColor: black,
     margin: 10
+  },
+  forgotPasswordText: {
+    width: 135.5,
+    height: 14,
+    fontFamily: 'Open Sans',
+    fontSize: 10.5,
+    fontWeight: '600',
+    fontStyle: 'normal',
+    letterSpacing: 0,
+    textAlign: 'center',
+    color: black,
+    marginTop: '5%'
+  },
+  connectWithFacebookText: { 
+    width: 210,
+    height: 17,
+    fontFamily: 'Open Sans',
+    fontSize: 12,
+    fontWeight: 'bold',
+    fontStyle: 'normal',
+    letterSpacing: 2.4,
+    textAlign: 'center',
+    color: black,
+    marginTop: '5%'
   }
 });
 
