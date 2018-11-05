@@ -11,7 +11,7 @@ import * as constraints from '../../../utils/constraints';
 
 class SignUpForm extends Component {
   render () {
-    const { handleSubmit, signInLink } = this.props;
+    const { handleSubmit, goToSignIn } = this.props;
     return (
       <View contentContainerStyle={styles.container} keyboardShouldPersistTaps={'handled'} onSubmit={handleSubmit}>
         <View style={styles.field}>
@@ -61,7 +61,7 @@ class SignUpForm extends Component {
           <Divider style={styles.dividerContainer} />
           <TouchableOpacity
             style={[styles.buttonLargeContainer, styles.primaryButton]}
-            onPress={signInLink}>
+            onPress={goToSignIn}>
             <Text style={styles.buttonText}>SIGN IN</Text>
           </TouchableOpacity>
         </View>

@@ -30,7 +30,7 @@ class SignInScreen extends Component {
           <ImageBackground source={signInBackground} style={styles.container} resizeMode='cover'>
             <View style={styles.formContainer}>
               <Text style={styles.targetMvdText}>TARGET MVD</Text>
-              <SignInForm onSubmit={user => signIn(user.toJS())}  signUpLink={this.navigateToSignUp}/>
+              <SignInForm onSubmit={user => signIn(user.toJS())}  goToSignUp={this.navigateToSignUp}/>
             </View>
           </ImageBackground>
         </View>         

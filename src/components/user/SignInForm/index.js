@@ -7,7 +7,7 @@ import styles from './styles';
 import { white, black } from '../../../constants/styleConstants';
 import * as constraints from '../../../utils/constraints';
 
-const SignInForm = ({ handleSubmit, signUpLink }) => (
+const SignInForm = ({ handleSubmit, goToSignUp }) => (
   <View style={styles.container} keyboardShouldPersistTaps={'handled'} onSubmit={handleSubmit}>
     <View style={styles.formContainer}>
     <View style={styles.field}>
@@ -36,7 +36,7 @@ const SignInForm = ({ handleSubmit, signUpLink }) => (
       </TouchableOpacity>
     </View>
     <View style={styles.dividerContainer}/>
-      <TouchableOpacity onPress={signUpLink}>
+      <TouchableOpacity onPress={goToSignUp}>
         <Text style={styles.buttonText}>SIGN UP</Text>
       </TouchableOpacity>
   </View>
