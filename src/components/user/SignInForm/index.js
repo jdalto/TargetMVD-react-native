@@ -6,6 +6,7 @@ import ActionButton from '../../common/ActionButton';
 import styles from './styles';
 import { white, black } from '../../../constants/styleConstants';
 import * as constraints from '../../../utils/constraints';
+import { LoginButton, AccessToken } from 'react-native-fbsdk';
 
 const SignInForm = ({ handleSubmit, goToSignUp }) => (
   <View style={styles.container} keyboardShouldPersistTaps={'handled'} onSubmit={handleSubmit}>
@@ -36,9 +37,28 @@ const SignInForm = ({ handleSubmit, goToSignUp }) => (
       </TouchableOpacity>
     </View>
     <View style={styles.dividerContainer}/>
-      <TouchableOpacity onPress={goToSignUp}>
-        <Text style={styles.buttonText}>SIGN UP</Text>
-      </TouchableOpacity>
+    <TouchableOpacity onPress={signUpLink}>
+      <Text style={styles.buttonText}>SIGN UP</Text>
+    </TouchableOpacity>
+    <View>
+        <LoginButton
+          onLoginFinished={
+            (error, result) => {
+              if (error) {
+                console.log("login has error: " + result.error);
+              } else if (result.isCancelled) {
+                console.log("login is cancelled.");
+              } else {
+                AccessToken.getCurrentAccessToken().then(
+                  (data) => {
+                    console.log(data.accessToken.toString())
+                  }
+                )
+              }
+            }
+          }
+          onLogoutFinished={() => console.log("logout.")}/>
+      </View>
   </View>
 );
 

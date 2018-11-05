@@ -81,5 +81,18 @@
 		<string>OpenSans-SemiBold.ttf</string>
 		<string>OpenSans-SemiBoldItalic.ttf</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb2152196118379247</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>2152196118379247</string>
+	<key>FacebookDisplayName</key>
+	<string>Juan Martín's first app</string>
 </dict>
 </plist>
