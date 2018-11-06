@@ -7,8 +7,9 @@ import styles from './styles';
 import { white, black } from '../../../constants/styleConstants';
 import * as constraints from '../../../utils/constraints';
 import { LoginButton, AccessToken } from 'react-native-fbsdk';
+import { alertErrors } from '../../../utils/helpers'
 
-const SignInForm = ({ handleSubmit, goToSignUp }) => (
+const SignInForm = ({ handleSubmit, signUpLink, facebookSignIn }) => (
   <View style={styles.container} keyboardShouldPersistTaps={'handled'} onSubmit={handleSubmit}>
     <View style={styles.formContainer}>
     <View style={styles.field}>
@@ -32,33 +33,33 @@ const SignInForm = ({ handleSubmit, goToSignUp }) => (
       <TouchableOpacity>  
         <Text style={styles.forgotPasswordText}>Forgot your password?</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <Text style={styles.connectWithFacebookText}>CONNECT WITH FACEBOOK</Text>
-      </TouchableOpacity>
-    </View>
-    <View style={styles.dividerContainer}/>
-    <TouchableOpacity onPress={signUpLink}>
-      <Text style={styles.buttonText}>SIGN UP</Text>
-    </TouchableOpacity>
-    <View>
+      <View style={styles.facebookSignInContainer}>
         <LoginButton
-          onLoginFinished={
+          readPermissions={['email']}
+          onLoginFinished={                                       //TODO: PASS IT TO A FUNCTION IN THE CLASS
             (error, result) => {
               if (error) {
-                console.log("login has error: " + result.error);
+                console.log('login has error: ' + result.error);
+                alertErrors('login has error: ' + result.error);
               } else if (result.isCancelled) {
-                console.log("login is cancelled.");
+                console.log('login is cancelled.');
+                alertErrors('login is cancelled.');
               } else {
                 AccessToken.getCurrentAccessToken().then(
                   (data) => {
-                    console.log(data.accessToken.toString())
+                    facebookSignIn(data.accessToken.toString());
                   }
                 )
               }
             }
           }
-          onLogoutFinished={() => console.log("logout.")}/>
+          onLogoutFinished={() => console.log('logout.')}/>
       </View>
+    </View>
+    <View style={styles.dividerContainer}/>
+    <TouchableOpacity onPress={signUpLink}>
+      <Text style={styles.buttonText}>SIGN UP</Text>
+    </TouchableOpacity>
   </View>
 );
 
