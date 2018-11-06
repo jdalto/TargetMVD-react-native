@@ -65,18 +65,6 @@ const styles = StyleSheet.create({
     color: black,
     marginTop: '7%'
   },
-  // connectWithFacebookText: {       //TODO: REMOVE THIS
-  //   width: 210,
-  //   height: 17,
-  //   fontFamily: 'Open Sans',
-  //   fontSize: 12,
-  //   fontWeight: 'bold',
-  //   fontStyle: 'normal',
-  //   letterSpacing: 2.4,
-  //   textAlign: 'center',
-  //   color: black,
-  //   marginTop: '5%'
-  // },
   facebookSignInContainer: { 
     marginTop: '5%'
   },

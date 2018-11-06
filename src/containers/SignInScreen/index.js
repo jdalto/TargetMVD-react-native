@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Text, View, ImageBackground, SafeAreaView } from 'react-native';
 import SignInForm from '../../components/user/SignInForm';
 import signInBackground from '../../assets/background.png';
@@ -36,7 +36,7 @@ class SignInScreen extends Component {
           <ImageBackground source={signInBackground} style={styles.container} resizeMode='cover'>
             <View style={styles.formContainer}>
               <Text style={styles.targetMvdText}>TARGET MVD</Text>
-              <SignInForm onSubmit={user => signIn(user.toJS())}  signUpLink={this.navigateToSignUp} facebookSignIn={ accessToken => facebookSignIn(accessToken) }/>
+              <SignInForm onSubmit={user => signIn(user.toJS())}  goToSignUp={this.navigateToSignUp} facebookSignIn={ accessToken => facebookSignIn(accessToken) }/>
             </View>
           </ImageBackground>
         </View>         
