@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { Text, View, ImageBackground, SafeAreaView } from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, ImageBackground } from 'react-native';
 import signInBackground from '../../assets/background.png';
 import styles from './styles';
 

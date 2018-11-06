@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import {white, black} from '../../constants/styleConstants';
+import { white, black } from '../../constants/styleConstants';
 import { getTopSpacing } from '../../utils/helpers';
 
 const styles = StyleSheet.create({
@@ -22,16 +22,12 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   welcomeText: {
-    width: 221.5,
-    height: 27,
     fontFamily: 'Open Sans',
     fontSize: 20,
     fontWeight: 'bold',
     fontStyle: 'normal',
     letterSpacing: 3,
     color: black,
-    marginBottom: 20,
-    marginLeft: 40
   }
 });
 

@@ -6,13 +6,12 @@ const styles = StyleSheet.create({
     marginTop: 4,
     height: 'auto',
     width: 100,
-    color: black,
+    color: black
   },
   container: {
-    flex:1,
-    alignItems:'center',
-    justifyContent: 'center',
-    height: 'auto'
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   label: {
     height: 15,
@@ -23,13 +22,13 @@ const styles = StyleSheet.create({
     letterSpacing: 1.65,
     textAlign: 'center',
     color: black,
-    marginTop: '19%'
+    marginTop: '9%'
   },
   field: {
     flex:1,
     alignItems: 'center',
-    justifyContent:'center',
-    height: '25%'
+    justifyContent: 'center',
+    height: '80%'
   },
   buttonText: {
     width: 102.3,
@@ -40,16 +39,19 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     letterSpacing: 1.65,
     textAlign: 'center',
-    color: black
+    color: black,
+    marginTop: '5%'
   },
   buttonsContainer: {
-    flex:1,
-    alignItems:'center',
+    flex: 1,
+    alignItems: 'center',
     marginTop: '10%'
   },
   dividerContainer: {
-    backgroundColor: black,
-    margin: 10
+    borderBottomColor: black,
+    borderBottomWidth: 1,
+    width: 121,
+    height: 0.5
   },
   forgotPasswordText: {
     width: 135.5,
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0,
     textAlign: 'center',
     color: black,
-    marginTop: '5%'
+    marginTop: '7%'
   },
   connectWithFacebookText: { 
     width: 210,
@@ -74,6 +76,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: black,
     marginTop: '5%'
+  },
+  formContainer: {
+    flex: 1,
+    alignItems:'center',
+    justifyContent: 'center'
   }
 });
 

@@ -50,8 +50,8 @@ export const signIn = (user) =>
         .then(() => {
           dispatch(signInSuccess());
         });
-    }).catch((err) => {
+    }).catch(({ errors }) => {
       dispatch(signInError());
-      alertErrors('Sign in error'); //TODO: Change 
+      alertErrors(errors[0]);
     });
 };

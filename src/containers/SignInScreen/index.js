@@ -9,6 +9,17 @@ import styles from './styles';
 class SignInScreen extends Component {
   constructor(props) {
     super(props);
+    this.navigateToSignUp = this.navigateToSignUp.bind(this);
+  }
+
+  navigateToSignUp = () => {
+    const { navigator } = this.props;
+    navigator.push({
+      screen: 'targetmvd.SignUpScreen',
+      navigatorStyle: {
+        navBarHidden: true
+      }
+    });
   }
 
   render(){
@@ -19,7 +30,7 @@ class SignInScreen extends Component {
           <ImageBackground source={signInBackground} style={styles.container} resizeMode='cover'>
             <View style={styles.formContainer}>
               <Text style={styles.targetMvdText}>TARGET MVD</Text>
-              <SignInForm onSubmit={user => signIn(user.toJS())}/>
+              <SignInForm onSubmit={user => signIn(user.toJS())}  goToSignUp={this.navigateToSignUp}/>
             </View>
           </ImageBackground>
         </View>         
