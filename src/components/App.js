@@ -36,7 +36,7 @@ class App {
   startAuthenticatedApp() {
     Navigation.startSingleScreenApp({
       screen: {
-        screen: 'targetmvd.HomeScreen',
+        screen: 'targetmvd.TargetScreen',
         navigatorStyle: {
           navBarHidden: true
         }
