@@ -71,7 +71,7 @@ export const signIn = (user) =>
 export const facebookSignIn = (accessToken) =>
   (dispatch) => {
     dispatch(submitFacebookSignIn());
-    userApi.facebookSignIn({ access_token: accessToken }).then((user) => {
+    userApi.facebookSignIn({ accessToken }).then((user) => {
       sessionService.saveUser(user)
         .then(() => {
           dispatch(facebookSignInSuccess());
