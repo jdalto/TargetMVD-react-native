@@ -42,7 +42,6 @@ export const getTargets = () =>
 
 export const createNewTarget = (target, coordinates) =>
 (dispatch) => {
-  debugger;
   dispatch(beginCreateNewTarget());
   return targetApi.createNewTarget(target, coordinates)
     .then((target) => {
