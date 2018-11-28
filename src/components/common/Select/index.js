@@ -1,5 +1,5 @@
 import React, {Component}from 'react';
-import {View, Text} from 'react-native';
+import { Text, View } from 'react-native';
 import styles from './styles';
 import ModalDropdown from 'react-native-modal-dropdown';
 import {redDefault, black} from '../../../constants/styleConstants'
@@ -18,18 +18,25 @@ class Select extends Component {
   render () {
     const {
       input: { onChange, value, ...inputProps }, 
-      options, 
+      options,
+      width,
+      dropDownHeight,
+      dropDownWidth,
+      defaultValue,
+      onDropdownWillShow,
       meta: { touched, error },
       ...pickerProps
     } = this.props;
     return(
       <View style={styles.container}>
         <ModalDropdown
-          style={[styles.selectArea, { borderColor: (error && touched ? redDefault : black), borderWidth: (error && touched ? 1.5 : 0.5) }]}
-          dropdownStyle={styles.dropDownArea}
+          style={[styles.selectArea, { borderColor: (error && touched ? redDefault : black), 
+            borderWidth: (error && touched ? 1.5 : 0.5), width }]}
+          dropdownStyle={[styles.dropDownArea, {width: dropDownWidth, height: dropDownHeight}]}
           textStyle={styles.dropdownText}
-          defaultValue={ value }
+          defaultValue={ defaultValue || value }
           onSelect={ value => this.handleOnSelectChange(value) }
+          onDropdownWillShow={onDropdownWillShow}
           options={ options }
           { ...inputProps }
           { ...pickerProps }

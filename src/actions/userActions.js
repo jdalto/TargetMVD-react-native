@@ -39,6 +39,10 @@ export const facebookSignInError = () => ({
   type: types.FACEBOOK_SIGN_IN_ERROR
 });
 
+export const creatingNewTarget = () => ({
+  type: types.CREATING_NEW_TARGET
+});
+
 export const signUp = (user) =>
 (dispatch) => {
   dispatch(submitSignUp());

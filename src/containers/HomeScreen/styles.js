@@ -4,11 +4,11 @@ import { getTopSpacing } from '../../utils/helpers';
 
 const styles = StyleSheet.create({
   safeAreaTop: {
-    flex: 1,
+    flex: 1
   },
   signInContainer: {
     backgroundColor: white,
-    height: '100%',
+    height: '100%'
   },
   container: {
     flex: 1,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontStyle: 'normal',
     letterSpacing: 3,
-    color: black,
+    color: black
   }
 });
 

@@ -47,5 +47,19 @@ export const signIn = {
   }
 };
 
+export const createTarget = {
+  areaLenght: {
+    presence: true,
+  },
+  targetTitle: {
+    presence: true,
+  },
+  topic: {
+    presence: {
+      message: '^You must select a topic'
+    }
+  }
+};
+
 export const validations = constraints =>
   data => validate(data.toJS(), constraints) || {};

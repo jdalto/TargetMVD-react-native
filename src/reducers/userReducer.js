@@ -3,7 +3,7 @@ import Immutable from 'immutable'
 
 export const initialState = Immutable.Map({
     loading: false,
-    doingSignUp: false
+    doingSignUp: false,
   });
 
 export default function userReducer(state = initialState, action) {
