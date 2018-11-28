@@ -1,5 +1,5 @@
 // colors
-export const white = '#fff';
+export const white = '#ffffff';
 export const orange = '#fc9f43';
 export const blueGrey = '#7a7aa1';
 export const darkGrey = '#818181';
@@ -21,3 +21,4 @@ export const midBlack = 'rgba(0,0,0,0.5)';
 export const coolGreen = '#2cc76e';
 export const softOrange = '#f5a623';
 export const black = '#000000';
+export const transparentYellow = 'rgba(239, 197, 55, 0.7)';

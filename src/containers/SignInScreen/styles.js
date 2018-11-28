@@ -4,11 +4,11 @@ import { getTopSpacing } from '../../utils/helpers';
 
 const styles = StyleSheet.create({
   safeAreaTop: {
-    flex: 1,
+    flex: 1
   },
   signInContainer: {
     backgroundColor: white,
-    height: '100%',
+    height: '100%'
   },
   container: {
     flex: 1,
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   formContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   targetMvdText: {
     width: 221.5,

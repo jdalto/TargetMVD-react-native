@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form/immutable';
-import { Text, View, TouchableOpacity} from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { Divider } from 'react-native-elements';
 import Input from '../../common/Input';
 import Select from '../../common/Select';
@@ -19,6 +19,7 @@ class SignUpForm extends Component {
           <Field
             name='name'
             component={Input}
+            width={180}  
           />
         </View>
         <View style={styles.field}>
@@ -27,6 +28,7 @@ class SignUpForm extends Component {
             name='email'
             keyboardType={'email-address'}
             component={Input}
+            width={180}  
           />
         </View>
         <View style={styles.field}>
@@ -36,6 +38,7 @@ class SignUpForm extends Component {
             component={Input}
             password
             placeholder='MIN. 8 CHARACTERS LONG'
+            width={180}  
           />
         </View>
         <View style={styles.field}>
@@ -45,6 +48,7 @@ class SignUpForm extends Component {
             component={Input}
             password
             placeholder='MIN. 8 CHARACTERS LONG'
+            width={180}  
           />
         </View>
         <View style={styles.field}>
@@ -54,6 +58,7 @@ class SignUpForm extends Component {
             component={ Select }
             options={['Male', 'Female']}
             defaultValue='SELECT YOUR GENDER'
+            width={180}  
           />
         </View>
         <View style={styles.buttonsContainer}>

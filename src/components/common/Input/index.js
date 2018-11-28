@@ -7,24 +7,32 @@ import styles from './styles';
 class Input extends Component {
   render () {
     const {
-      input: { onChange, ...restInput },
+      input: { onChange, onFocus, ...restInput },
       password = false,
       characterRestriction,
       multiline = false,
       returnKeyType = 'done',
+      value,
+      defaultValue,
       placeholder,
+      width,
+      editable = true,
       meta: { touched, error }                 
     } = this.props;
     return(
       <View style={styles.container}>  
         <TextInput
           style={[styles.inputArea, { borderColor: (error && touched ? redDefault : black),
-            borderWidth: (error && touched ? 1.5 : 0.5) }]}
+            borderWidth: (error && touched ? 1.5 : 0.5), width }]}
           tintColor={darkGrey}
           baseColor={defaultBlack}
           lineWidth={0.3}
+          value={value}
+          defaultValue={defaultValue}
           onChangeText={onChange}
+          onFocus={onFocus}
           secureTextEntry={password}
+          editable={editable}
           {...restInput}
           characterRestriction={characterRestriction}
           multiline={multiline}

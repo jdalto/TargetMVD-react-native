@@ -5,6 +5,7 @@ import signInBackground from '../../assets/background.png';
 import { signIn } from '../../actions/userActions';
 import { connect } from 'react-redux';
 import styles from './styles';
+import Loading from '../../components/common/Loading';
 
 class SignInScreen extends Component {
   constructor(props) {
@@ -23,7 +24,10 @@ class SignInScreen extends Component {
   }
 
   render(){
-    const { signIn } = this.props;
+    const { signIn, loading } = this.props;
+    if (loading)
+      return <Loading/>;
+
     return (
       <View style={styles.signInContainer}>
         <View style={styles.safeAreaTop}>

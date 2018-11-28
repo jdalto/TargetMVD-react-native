@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
     height: 'auto',
     width: 100,
-    color: black,
+    color: black
   },
   container: {
     flex:1,

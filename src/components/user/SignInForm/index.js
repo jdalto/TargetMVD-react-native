@@ -15,6 +15,7 @@ const SignInForm = ({ handleSubmit, goToSignUp }) => (
       <Field
         name='email'
         component={Input}
+        width={180}
       />
     </View>
     <View style={styles.field}>
@@ -23,6 +24,7 @@ const SignInForm = ({ handleSubmit, goToSignUp }) => (
         name='password'
         component={Input}
         password
+        width={180}        
       />
     </View>    
     </View>    

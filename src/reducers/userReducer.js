@@ -3,7 +3,7 @@ import Immutable from 'immutable'
 
 export const initialState = Immutable.Map({
     loading: false,
-    doingSignUp: false
+    doingSignUp: false,
   });
 
 export default function userReducer(state = initialState, action) {
@@ -22,7 +22,7 @@ export default function userReducer(state = initialState, action) {
       return state.set('loading', true);
     case types.SIGN_IN_SUCCESS:
     case types.SIGN_IN_ERROR:
-      return state.set('loading', false);                        
+      return state.set('loading', false);          
     default:
       return state;
   }
