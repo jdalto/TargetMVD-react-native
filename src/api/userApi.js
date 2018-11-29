@@ -12,6 +12,14 @@ class Session {
   static facebookSignIn(accessToken) {
     return api.post('/users/sign_in/facebook', accessToken);
   }
+
+  static resetPassword(userId) {
+    const request = {
+      email: 'jdalto@rootstrap.com',
+      redirect_url: 'http://www.example.com'
+    };
+    return api.post('/users/password', userId);
+  }
 }
 
 export default Session;

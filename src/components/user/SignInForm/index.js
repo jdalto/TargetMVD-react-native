@@ -10,7 +10,7 @@ import { LoginButton, AccessToken } from 'react-native-fbsdk';
 import { alertErrors } from '../../../utils/helpers';
 import LinkButton from '../../common/LinkButton';
 
-const SignInForm = ({ handleSubmit, goToSignUp, facebookSignIn  }) => {
+const SignInForm = ({ handleSubmit, goToSignUp, facebookSignIn, handleResetPassword  }) => {
 
   const handleFacebookSignIn = (error, result) => {
     if (error) {
@@ -47,7 +47,7 @@ const SignInForm = ({ handleSubmit, goToSignUp, facebookSignIn  }) => {
       </View>    
       <View style={styles.buttonsContainer}>
         <ActionButton title="SIGN IN" backgroundColor={black} textColor={white} onPress={handleSubmit}/>
-        <LinkButton text="Forgot your password?" textStyle={styles.forgotPasswordText}/>
+        <LinkButton text="Forgot your password?" textStyle={styles.forgotPasswordText} onPress={handleResetPassword}/>
         <View style={styles.facebookSignInContainer}>
           <LoginButton
             readPermissions={['email']}

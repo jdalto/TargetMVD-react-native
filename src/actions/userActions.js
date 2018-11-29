@@ -39,6 +39,18 @@ export const facebookSignInError = () => ({
   type: types.FACEBOOK_SIGN_IN_ERROR
 });
 
+export const submitResetPassword = () => ({
+  type: types.SUBMIT_RESET_PASSWORD
+})
+
+export const resetPasswordSuccess = () => ({
+  type: types.RESET_PASSWORD_SUCCESS
+});
+
+export const resetPasswordError = () => ({
+  type: types.RESET_PASSWORD_ERROR
+});
+
 export const signUp = (user) =>
 (dispatch) => {
   dispatch(submitSignUp());
@@ -78,6 +90,18 @@ export const facebookSignIn = (accessToken) =>
         });
     }).catch(({ errors }) => {
       dispatch(facebookSignInError());
+      alertErrors(errors[0]);
+    });
+};
+
+export const resetPassword = (user) =>
+  (dispatch) => {
+    debugger;
+    dispatch(submitResetPassword());
+    userApi.resetPassword({ userId }).then((token) => {
+      dispatch(resetPasswordSuccess());
+    }).catch(({ errors }) => {
+      dispatch(resetPasswordError());
       alertErrors(errors[0]);
     });
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, ImageBackground, SafeAreaView } from 'react-native';
 import SignInForm from '../../components/user/SignInForm';
 import signInBackground from '../../assets/background.png';
-import { signIn, facebookSignIn } from '../../actions/userActions';
+import { signIn, facebookSignIn, resetPassword } from '../../actions/userActions';
 import { connect } from 'react-redux';
 import styles from './styles';
 import Loading from '../../components/common/Loading';
@@ -23,8 +23,18 @@ class SignInScreen extends Component {
     });
   }
 
+  navigateToSignUp = () => {
+    const { navigator } = this.props;
+    navigator.push({
+      screen: 'targetmvd.SignUpScreen',
+      navigatorStyle: {
+        navBarHidden: true
+      }
+    });
+  }
+
   render(){
-    const { signIn, facebookSignIn, loading, authenticated } = this.props;
+    const { signIn, facebookSignIn, loading, authenticated, resetPassword } = this.props;
 
     if (loading || authenticated) {
       return <Loading />;
@@ -36,8 +46,12 @@ class SignInScreen extends Component {
           <ImageBackground source={signInBackground} style={styles.container} resizeMode="cover">
             <View style={styles.formContainer}>
               <Text style={styles.targetMvdText}>TARGET MVD</Text>
-              <SignInForm onSubmit={user => signIn(user.toJS())}  goToSignUp={this.navigateToSignUp} 
-                facebookSignIn={ accessToken => facebookSignIn(accessToken) }/>
+              <SignInForm 
+                onSubmit={user => signIn(user.toJS())}
+                goToSignUp={this.navigateToSignUp} 
+                facebookSignIn={ accessToken => facebookSignIn(accessToken)}
+                handleResetPassword={user => resetPassword(user.toJS())}
+              />
             </View>
           </ImageBackground>
         </View>         
@@ -53,7 +67,8 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   signIn: user => dispatch(signIn(user)),
-  facebookSignIn: accessToken => dispatch(facebookSignIn(accessToken))
+  facebookSignIn: accessToken => dispatch(facebookSignIn(accessToken)),
+  resetPassword: user => dispatch(resetPassword(user))
 });
 
 export default connect(mapState, mapDispatch)(SignInScreen);
