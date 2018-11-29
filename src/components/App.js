@@ -48,14 +48,16 @@ class App {
             {
               icon: require('../assets/chat.png'),
               id: 'chat',
-              disableIconTint: true
+              disableIconTint: true,
+              component: 'ProfileScreen'
             }
           ],
           leftButtons: [
             {
               icon: require('../assets/profile.png'),
               id: 'profile',
-              disableIconTint: true
+              disableIconTint: true,
+              screen: 'targetmvd.ProfileScreen',
             }
           ]
         }
