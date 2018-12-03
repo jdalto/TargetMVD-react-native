@@ -14,10 +14,6 @@ const ActionButton = ({
       onPress={onPress}
       textStyle={styles.title}
       buttonStyle={[styles.container, { backgroundColor, borderColor }]}
-      fontFamily="Open Sans"
-      fontStyle="normal"
-      fontWeight="600"
-      fontSize={11}
     />
 );
 

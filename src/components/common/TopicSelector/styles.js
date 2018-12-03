@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontFamily: 'Open Sans',
     backgroundColor: white,
-    alignSelf: 'center'
+    padding: 10
   },
   errorText: {
     color: redDefault,

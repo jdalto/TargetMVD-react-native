@@ -20,14 +20,14 @@ class TargetForm  extends Component {
     this.handleTopicSelection = this.handleTopicSelection.bind(this);
   }
 
-  renderTopicsList(e){
+  renderTopicsList(){
     this.setState({
       toggleSelectTopic: true
     })
-    return false;
+    return true;
   }
 
-  handleTopicSelection(e, topicId){
+  handleTopicSelection(topicId){
     this.setState({
       selectedTopic: topicId,
       toggleSelectTopic: false
@@ -36,11 +36,12 @@ class TargetForm  extends Component {
 
   render(){
     const { toggleSelectTopic, selectedTopic } = this.state;
+    const { handleSubmit } = this.props;
     if(toggleSelectTopic)
       return <TopicsList onTopicSelect={this.handleTopicSelection}/>;
     else 
       return (
-        <View style={styles.container} keyboardShouldPersistTaps="handled" onSubmit={this.props.handleSubmit}>
+        <View style={styles.container} keyboardShouldPersistTaps="handled" onSubmit={handleSubmit}>
           <View style={styles.field}>
             <Text style={styles.label}>SPECIFY AREA LENGHT</Text>
             <Field
@@ -62,7 +63,7 @@ class TargetForm  extends Component {
             <Text style={styles.label}>SELECT A TOPIC</Text>
             <Field
               name="topic"
-              component={ TopicSelector }
+              component={TopicSelector}
               defaultValue="What do you want to talk about?"
               width={250}
               onPress={(e) => this.renderTopicsList(e)}
@@ -70,7 +71,7 @@ class TargetForm  extends Component {
             />
           </View> 
           <View style={styles.buttonsContainer}>
-            <ActionButton title="SAVE TARGET" backgroundColor={black} textColor={white} onPress={this.props.handleSubmit}/>
+            <ActionButton title="SAVE TARGET" backgroundColor={black} textColor={white} onPress={handleSubmit}/>
           </View>
         </View>
       )

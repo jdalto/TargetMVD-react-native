@@ -9,14 +9,14 @@ class Target {
     return api.get('/topics');
   }
 
-  static createNewTarget(target, { coordinate } ) {
+  static createNewTarget({ targetTitle, areaLenght, topic }, { coordinate: { latitude, longitude } }) {
     const targetRequest = {
       target: {
-        title: target.targetTitle,
-        radius: target.areaLenght,
-        latitude: coordinate.latitude,
-        longitude: coordinate.longitude,
-        topic_id: target.topic
+        title: targetTitle,
+        radius: areaLenght,
+        latitude: latitude,
+        longitude: longitude,
+        topic_id: topic
       }
     }
     return api.post('/targets', targetRequest);

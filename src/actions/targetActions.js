@@ -4,7 +4,7 @@ import { alertErrors, getFullErrorMessage } from '../utils/helpers';
 
 export const fetchTargetsSuccess = targets => ({
   type: types.FETCH_TARGETS_SUCCESS,
-  payload: { targets }
+  targets
 });
   
 export const fetchTargetsError = () => ({
@@ -19,9 +19,9 @@ export const beginCreateNewTarget = () => ({
   type: types.CREATE_NEW_TARGET_BEGIN,
 });
 
-export const createNewTargetSuccess = target => ({
+export const createNewTargetSuccess = newTarget => ({
   type: types.CREATE_NEW_TARGET_SUCCESS,
-  payload: { target }
+  newTarget
 });
 
 export const createNewTargetError = () => ({

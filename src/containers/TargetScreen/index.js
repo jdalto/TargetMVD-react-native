@@ -27,7 +27,7 @@ class TargetScreen extends Component {
   }
 
   componentDidMount(){
-    this.props.getTargets().then( () => {
+    this.props.getTargets().then(() => {
       this.setState({
         loadTargets: true,
       });
@@ -44,40 +44,42 @@ class TargetScreen extends Component {
   }
 
   renderNewTarget(){
+    const { newTarget: { coordinate } } = this.state
     return (
       <View>
         <Marker 
-          coordinate={this.state.newTarget.coordinate}
+          coordinate={coordinate}
           draggable
           image={require('../../assets/pointer.png')}
         >
         </Marker>
         <Circle
-          center = { this.state.newTarget.coordinate }
-          radius = { 50 }
-          strokeColor = { transparentYellow }
-          fillColor = { white }
+          center={coordinate}
+          radius= {50}
+          strokeColor= {transparentYellow}
+          fillColor={white}
         />
       </View>
     )
   }
 
   renderMarkers(){
-    return this.props.targets.map( (target) => {
-      const lat = parseFloat(target.latitude);
-      const lng = parseFloat(target.longitude);
+    const { targets } = this.props;
+    return targets.map(({ id, topicId , radius ,latitude, longitude }) => {
+      const lat = parseFloat(latitude);
+      const lng = parseFloat(longitude);
       return (
-        <View key={target.id}>
+        <View key={id}>
           <Marker 
-            coordinate={{ latitude: lat, longitude: lng }}
-            image={getTopicIcon(target.topicId)}
+            coordinate={{latitude: lat, longitude: lng}}
+            image={getTopicIcon(topicId)}
              >
           </Marker>
           <Circle
-              center = { { latitude: lat, longitude: lng} }
-              radius = { target.radius }
-              strokeColor = { transparentYellow }
-              fillColor = { transparentYellow }
+            center={{latitude: lat, longitude: lng}}
+            radius={radius}
+            strokeColor={transparentYellow}
+            fillColor={transparentYellow}
             />
         </View>
       );
@@ -87,13 +89,12 @@ class TargetScreen extends Component {
   render(){
     const { createNewTarget } = this.props;
     const { toggleNewTarget, loadTargets, newTarget  } = this.state;
-
-    let componenToRender = toggleNewTarget ? <TargetForm onSubmit={(target) => createNewTarget(target.toJS(), newTarget)} /> : (
-                        <TouchableOpacity onPress={this.handleCreatNewTargetClick}>
-                          <Image source={require('../../assets/group.png')} style={styles.targetIcon}/>
-                          <Text style={styles.createTargetText}>CREATE NEW TARGET</Text>
-                        </TouchableOpacity>
-                      );
+    const componenToRender = toggleNewTarget ? 
+                             <TargetForm onSubmit={(target) => createNewTarget(target.toJS(), newTarget)}/> :
+                             (<TouchableOpacity onPress={this.handleCreatNewTargetClick}>
+                                <Image source={require('../../assets/group.png')} style={styles.targetIcon}/>
+                                <Text style={styles.createTargetText}>CREATE NEW TARGET</Text>
+                             </TouchableOpacity>);
     if (!loadTargets)
       return <Loading />;
     else
@@ -113,8 +114,8 @@ class TargetScreen extends Component {
                 }}
                 onPress={this.handlePressMap}
               >
-              {loadTargets ? this.renderMarkers() : null}
-              {newTarget ? this.renderNewTarget() : null}
+              {loadTargets && this.renderMarkers()}
+              {newTarget && this.renderNewTarget()}
               </MapView>
           </View>
           <View style={toggleNewTarget ? styles.targetForm : styles.createTargetButtonContainer}>

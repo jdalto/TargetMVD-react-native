@@ -18,7 +18,7 @@ export default function targetReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items: action.payload.targets
+        items: action.targets
       };
     }
     case types.FETCH_TARGETS_ERROR: {
@@ -37,7 +37,7 @@ export default function targetReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items: [ ...state.items, action.payload.target]
+        items: [ ...state.items, action.newTarget]
       };
     } 
     case types.CREATE_NEW_TARGET_ERROR: {

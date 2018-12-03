@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import { redDefault, black } from '../../../constants/styleConstants';
-import { getTopicTitle } from '../TopicsList';
+import { TOPICS } from '../../../constants/appConstants';
 
 const TopicSelector = ({
   input: { onChange, onFocus, ...restInput },
@@ -12,11 +12,12 @@ const TopicSelector = ({
   selectedTopic = null,
   meta: { touched, error }}) => {
 
-  const handleTopicSelection = (topic) => {
-    if (topic !== ''){
-      onChange(topic);
-      return getTopicTitle(topic);
-    }
+  const setTopicValue = (id) => {
+    onChange(id);
+    const topic = TOPICS.find((element) => {
+      return element.id === id;
+    })
+    return topic.title;
   }
 
   return(
@@ -26,7 +27,7 @@ const TopicSelector = ({
           borderWidth: (error && touched ? 1.5 : 0.5), width }]}
         {...restInput}
       >
-        {selectedTopic !== '' ? handleTopicSelection(selectedTopic) : defaultValue}
+        {selectedTopic !== '' ? setTopicValue(selectedTopic) : defaultValue}
       </Text>
       {error && touched && <Text style ={styles.errorText}>{error}</Text>}
     </TouchableOpacity>
