@@ -23,8 +23,14 @@ const TopicSelector = ({
   return(
     <TouchableOpacity style={styles.container} onPress={onPress}>  
       <Text
-        style={[styles.inputArea, { borderColor: (error && touched ? redDefault : black),
-          borderWidth: (error && touched ? 1.5 : 0.5), width }]}
+        style={[
+          styles.inputArea,
+          { 
+            borderColor: (error && touched ? redDefault : black),
+            borderWidth: (error && touched ? 1.5 : 0.5),
+            width 
+          }
+        ]}
         {...restInput}
       >
         {selectedTopic !== '' ? setTopicValue(selectedTopic) : defaultValue}

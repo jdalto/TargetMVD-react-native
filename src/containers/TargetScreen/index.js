@@ -37,8 +37,9 @@ class TargetScreen extends Component {
   }
 
   handlePressMap(e){
+    const { coordinate } = e.nativeEvent;
     this.setState({
-      newTarget: { coordinate: e.nativeEvent.coordinate },
+      newTarget: { coordinate },
       toggleNewTarget: false
     })
   }
@@ -55,8 +56,8 @@ class TargetScreen extends Component {
         </Marker>
         <Circle
           center={coordinate}
-          radius= {50}
-          strokeColor= {transparentYellow}
+          radius={50}
+          strokeColor={transparentYellow}
           fillColor={white}
         />
       </View>
@@ -128,8 +129,8 @@ class TargetScreen extends Component {
 }
 
 const mapStateToProps = state => ({
-  targets: state.getIn(['targetReducer']).items,
-  loading: state.getIn(['targetReducer']).loading,
+  targets: state.getIn(['targetReducer','items']),
+  loading: state.getIn(['targetReducer','loading']),
   error: state.getIn(['targetReducer'])
 });
 

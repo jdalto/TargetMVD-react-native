@@ -14,8 +14,8 @@ class Target {
       target: {
         title: targetTitle,
         radius: areaLenght,
-        latitude: latitude,
-        longitude: longitude,
+        latitude,
+        longitude,
         topic_id: topic
       }
     }
