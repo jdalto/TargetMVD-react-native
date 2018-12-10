@@ -31,6 +31,18 @@ export const creatingNewTarget = () => ({
   type: types.CREATING_NEW_TARGET
 });
 
+export const submitUpdateAccount = () => ({
+  type: types.SUBMIT_UPDATE_ACCOUNT
+});
+
+export const updateAccountSuccess = () => ({
+  type: types.UPDATE_ACCOUNT_SUCCESS
+});
+
+export const updateAccountError = () => ({
+  type: types.UPDATE_ACCOUNT_ERROR
+});
+
 export const signUp = (user) =>
 (dispatch) => {
   dispatch(submitSignUp());
@@ -56,6 +68,20 @@ export const signIn = (user) =>
         });
     }).catch(({ errors }) => {
       dispatch(signInError());
+      alertErrors(errors[0]);
+    });
+};
+
+export const updateAccount = (user) =>
+  (dispatch) => {
+    dispatch(submitUpdateAccount());
+    userApi.updateAccount(user).then((user) => {
+      sessionService.saveUser(user)
+        .then(() => {
+          dispatch(updateAccountSuccess());
+        });
+    }).catch(({ errors }) => {
+      dispatch(updateAccountError());
       alertErrors(errors[0]);
     });
 };

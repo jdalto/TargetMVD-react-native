@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   safeAreaTop: {
     flex: 1
   },
-  signInContainer: {
+  profileContainer: {
     backgroundColor: white,
     height: '100%'
   },
@@ -14,20 +14,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: getTopSpacing()
   },
-  formContainer: {
+  avatarContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'flex-start'
   },
-  welcomeText: {
-    fontFamily: 'Open Sans',
-    fontSize: 20,
-    fontWeight: 'bold',
-    fontStyle: 'normal',
-    letterSpacing: 3,
-    color: black
+  formContainer: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 

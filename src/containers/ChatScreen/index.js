@@ -3,7 +3,7 @@ import { Text, View, ImageBackground } from 'react-native';
 import signInBackground from '../../assets/background.png';
 import styles from './styles';
 
-class HomeScreen extends Component {
+class ChatScreen extends Component {
   constructor(props) {
     super(props);
   }
@@ -23,4 +23,4 @@ class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen;
+export default ChatScreen;

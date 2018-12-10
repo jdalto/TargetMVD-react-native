@@ -1,11 +1,10 @@
 import configureStore from '../store/configureStore';
-import { Provider} from 'react-redux';
 import registerScreens from '../screens';
 import { Navigation } from 'react-native-navigation';
 import { sessionService } from 'redux-react-native-session';
 
 const store = configureStore();
-registerScreens(store, Provider);
+registerScreens(store);
 
 class App {
   constructor() {
@@ -34,34 +33,43 @@ class App {
   }
 
   startAuthenticatedApp() {
-    Navigation.startSingleScreenApp({
-      screen: {
-        screen: 'targetmvd.TargetScreen',
-        title: 'Target Points',
-        navigatorStyle: {
-          navBarHidden: false,
-          navBarTextFontFamily: 'Open Sans',
-          navBarTitleTextCentered: true
-        },
-        navigatorButtons: {
-          rightButtons: [
-            {
-              icon: require('../assets/chat.png'),
-              id: 'chat',
-              disableIconTint: true,
-              component: 'ProfileScreen'
-            }
-          ],
-          leftButtons: [
-            {
-              icon: require('../assets/profile.png'),
-              id: 'profile',
-              disableIconTint: true,
-              screen: 'targetmvd.ProfileScreen',
-            }
-          ]
+    Navigation.events().registerAppLaunchedListener(() => {
+      Navigation.setRoot({
+        root: {
+          stack: {
+            children: [{
+              component: {
+                name: 'targetmvd.TargetScreen',
+                options: {
+                  backButton: {
+                    visible: false,
+                    color: 'green',
+                  },
+                  topBar: {
+                    title: {
+                      text: 'Target Points',
+                      alignment: 'center'
+                    },
+                    leftButtons: {
+                      id: 'profile',
+                      component: {
+                        name: 'targetmvd.ProfileNavBarButton'
+                      }
+                    },
+                    rightButtons: {
+                      id: 'chat',
+                      component: {
+                        name: 'targetmvd.ChatNavBarButton'
+                      }
+                    },
+                    visible: true
+                  }
+                }
+              }
+            }]
+          }
         }
-      }
+      });
     });
   }
 

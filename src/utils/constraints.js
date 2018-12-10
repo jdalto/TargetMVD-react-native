@@ -61,5 +61,17 @@ export const createTarget = {
   }
 };
 
+export const profileEdition = {
+  userName: {
+    presence: true
+  },
+  email: {
+    presence: true
+  },
+  password: {
+    presence: true
+  }
+};
+
 export const validations = constraints =>
   data => validate(data.toJS(), constraints) || {};

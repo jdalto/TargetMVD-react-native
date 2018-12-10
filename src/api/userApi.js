@@ -8,6 +8,11 @@ class Session {
   static signUp(user) {
     return api.post('/users', user);
   }
+
+  static updateAccount(user) {
+    debugger;
+    return api.post('/users/me', user);
+  }
 }
 
 export default Session;
