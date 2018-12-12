@@ -24,7 +24,6 @@ class TargetForm  extends Component {
     this.setState({
       toggleSelectTopic: true
     })
-    return true;
   }
 
   handleTopicSelection(topicId){

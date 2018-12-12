@@ -33,7 +33,7 @@ class TargetScreen extends Component {
       });
     }, error => {
       console.log(error);
-    } );
+    });
   }
 
   handlePressMap(e){
@@ -74,14 +74,14 @@ class TargetScreen extends Component {
           <Marker 
             coordinate={{latitude: lat, longitude: lng}}
             image={getTopicIcon(topicId)}
-             >
+          >
           </Marker>
           <Circle
             center={{latitude: lat, longitude: lng}}
             radius={radius}
             strokeColor={transparentYellow}
             fillColor={transparentYellow}
-            />
+          />
         </View>
       );
     });
