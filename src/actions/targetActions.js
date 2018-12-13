@@ -29,25 +29,23 @@ export const createNewTargetError = () => ({
 });
 
 export const getTargets = () =>
-(dispatch) => {
-  dispatch(beginFetchTargets());
-  return targetApi.getTargets()
-    .then(({ targets }) => {
+  (dispatch) => {
+    dispatch(beginFetchTargets());
+    return targetApi.getTargets().then(({ targets }) => {
       dispatch(fetchTargetsSuccess(targets));
     }).catch(({ errors }) => {
       dispatch(fetchTargetsError());
       alertErrors(getFullErrorMessage(errors))
     });
-};
+  };
 
 export const createNewTarget = (target, coordinates) =>
-(dispatch) => {
-  dispatch(beginCreateNewTarget());
-  return targetApi.createNewTarget(target, coordinates)
-    .then((target) => {
+  (dispatch) => {
+    dispatch(beginCreateNewTarget());
+    return targetApi.createNewTarget(target, coordinates).then((target) => {
       dispatch(createNewTargetSuccess(target));
     }).catch(({ errors }) => {
       dispatch(createNewTargetError());
       alertErrors(getFullErrorMessage(errors));
     });
-};
+  };
