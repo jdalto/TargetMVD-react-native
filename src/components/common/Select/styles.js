@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   dropDownArea:{
     width: 180,
     height: 74,
-    color: black,
+    color: black
   },
   dropdownText:{
     textAlign: 'center',
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     fontSize: 10.5,
     fontWeight: '600',
     fontStyle: 'normal',
-    letterSpacing: 0,
+    letterSpacing: 0
   },
   container:{ 
     flex: 1,

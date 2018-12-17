@@ -21,3 +21,10 @@ export const midBlack = 'rgba(0,0,0,0.5)';
 export const coolGreen = '#2cc76e';
 export const softOrange = '#f5a623';
 export const black = '#000000';
+export const transparentYellow = 'rgba(239, 197, 55, 0.7)';
+
+// fonts
+export const primaryFont = 'Open Sans';
+
+// font weights
+export const primaryFontWeight = '600';

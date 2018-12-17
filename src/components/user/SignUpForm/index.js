@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form/immutable';
-import { Text, View, TouchableOpacity} from 'react-native';
+import { Text, View } from 'react-native';
 import { Divider } from 'react-native-elements';
 import Input from '../../common/Input';
 import Select from '../../common/Select';

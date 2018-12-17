@@ -36,9 +36,28 @@ class App {
   startAuthenticatedApp() {
     Navigation.startSingleScreenApp({
       screen: {
-        screen: 'targetmvd.HomeScreen',
+        screen: 'targetmvd.TargetScreen',
+        title: 'Target Points',
         navigatorStyle: {
-          navBarHidden: true
+          navBarHidden: false,
+          navBarTextFontFamily: 'Open Sans',
+          navBarTitleTextCentered: true
+        },
+        navigatorButtons: {
+          rightButtons: [
+            {
+              icon: require('../assets/chat.png'),
+              id: 'chat',
+              disableIconTint: true
+            }
+          ],
+          leftButtons: [
+            {
+              icon: require('../assets/profile.png'),
+              id: 'profile',
+              disableIconTint: true
+            }
+          ]
         }
       }
     });

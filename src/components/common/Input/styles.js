@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: '600',
     fontFamily: 'Open Sans',
-    backgroundColor: white,
+    backgroundColor: white
   },
   errorText: {
     color: redDefault,
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     fontSize: 10.5,
     fontWeight: '600',
     fontStyle: 'normal',
-    letterSpacing: 0,
+    letterSpacing: 0
   },
   container: { 
     flex: 1,
